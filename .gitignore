@@ -1,0 +1,16 @@
+node_modules/
+/npm-debug.log
+package-lock.json
+test-results/
+playwright-report/
+blob-report/
+playwright/.cache/
+.env
+.env.local
+.env.*
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+out/
+build/
