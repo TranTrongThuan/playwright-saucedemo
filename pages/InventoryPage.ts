@@ -6,6 +6,7 @@ export class InventoryPage {
   readonly firstProductAddBtn: Locator;
   readonly productRemoveBtn: Locator;
   readonly shoppingCartBadge: Locator;
+  readonly shoppingCartLink: Locator;
 
   constructor(page: Page) {
     this.page = page;
@@ -13,6 +14,7 @@ export class InventoryPage {
     this.firstProductAddBtn = page.locator('button[id^="add-to-cart"]').first();
     this.productRemoveBtn = page.locator('button[id^="remove-"]').first();
     this.shoppingCartBadge = page.locator('.shopping_cart_badge');
+    this.shoppingCartLink = page.locator('.shopping_cart_link');
   }
 
   async addFirstItemToCart() {
@@ -20,5 +22,8 @@ export class InventoryPage {
   }
   async removeFirstItemFromCart() {
     await this.productRemoveBtn.click();
+  }
+  async proceedToCart() {
+    await this.shoppingCartLink.click();
   }
 }
