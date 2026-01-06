@@ -8,7 +8,7 @@
 Automation testing framework for [Swag Labs](https://www.saucedemo.com/) e-commerce website using **Playwright** and **TypeScript**.
 This project demonstrates the **Page Object Model (POM)** design pattern.
 
-## 🛠 Tech Stack
+## 🛠
 - **Language:** TypeScript
 - **Framework:** Playwright
 - **Reporting:** HTML Report / Allure Report
