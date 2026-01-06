@@ -1,4 +1,5 @@
 # SauceDemo Automation Framework
+![Playwright Tests](https://github.com/TranTrongThuan/playwright-saucedemo/actions/workflows/playwright.yml/badge.svg)
 
 ![Playwright](https://img.shields.io/badge/Playwright-45ba4b?style=for-the-badge&logo=Playwright&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
