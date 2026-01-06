@@ -11,9 +11,11 @@ This project demonstrates the **Page Object Model (POM)** design pattern.
 - **Language:** TypeScript
 - **Framework:** Playwright
 - **Reporting:** HTML Report / Allure Report
+- **CI/CD:** GitHub Actions
 
 ## 📂 Project Structure
 ```text
+├── .github/workflows   # CI/CD configurations
 ├── pages               # Page Object Classes (POM)
 ├── tests               # Test Scripts
 ├── playwright.config.ts
