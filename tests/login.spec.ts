@@ -4,9 +4,9 @@ import { InventoryPage } from '../pages/InventoryPage';
 import { CartPage } from '../pages/CartPage';
 import { CheckOutPage } from '../pages/CheckOutPage';
 
-test.describe('Chức năng Đăng nhập & Mua hàng', () => {
+test.describe('Login And Checkout Function', () => {
   
-  test('Login thành công', async ({ page }) => {
+  test('Login success', async ({ page }) => {
     const loginPage = new LoginPage(page);
     const inventoryPage = new InventoryPage(page);
 
@@ -17,7 +17,7 @@ test.describe('Chức năng Đăng nhập & Mua hàng', () => {
     await expect(page).toHaveURL(/.*inventory.html/);
   });
 
-  test('Login thất bại', async ({ page }) => {
+  test('Login fail', async ({ page }) => {
     const loginPage = new LoginPage(page);
     
     await loginPage.goto();
@@ -27,7 +27,7 @@ test.describe('Chức năng Đăng nhập & Mua hàng', () => {
     await expect(loginPage.errorMessage).toContainText('Epic sadface: Username and password do not match any user in this service');
   });
 
-  test('Tài khoản bị khóa', async ({ page }) => {
+  test('Locked Account', async ({ page }) => {
     const loginPage = new LoginPage(page);
     
     await loginPage.goto();
@@ -37,7 +37,7 @@ test.describe('Chức năng Đăng nhập & Mua hàng', () => {
     await expect(loginPage.errorMessage).toContainText('Epic sadface: Sorry, this user has been locked out.');
   });
 
-  test('Thêm sản phẩm vào giỏ hàng', async ({ page }) => {
+  test('Add to cart', async ({ page }) => {
     const loginPage = new LoginPage(page);
     const inventoryPage = new InventoryPage(page);
 
@@ -50,7 +50,7 @@ test.describe('Chức năng Đăng nhập & Mua hàng', () => {
     await expect(inventoryPage.shoppingCartBadge).toHaveText('1');
   });
 
-  test('Thêm 2 sản phẩm vào giỏ hàng', async ({ page }) => {
+  test('Add 2 items to cart', async ({ page }) => {
     const loginPage = new LoginPage(page);
     const inventoryPage = new InventoryPage(page);
 
@@ -64,7 +64,7 @@ test.describe('Chức năng Đăng nhập & Mua hàng', () => {
     await expect(inventoryPage.shoppingCartBadge).toHaveText('2');
   });
 
-  test('Xóa 1 sản phẩm khỏi giỏ hàng', async ({ page }) => {
+  test('Delete items from cart', async ({ page }) => {
     const loginPage = new LoginPage(page);
     const inventoryPage = new InventoryPage(page);
 
@@ -77,7 +77,7 @@ test.describe('Chức năng Đăng nhập & Mua hàng', () => {
     await expect(inventoryPage.shoppingCartBadge).toBeHidden();
   });
 
-  test('Vào giỏ hàng', async ({ page }) => {
+  test('Check cart', async ({ page }) => {
     const loginPage = new LoginPage(page);
     const inventoryPage = new InventoryPage(page);
     const cartPage = new CartPage(page);
@@ -91,7 +91,7 @@ test.describe('Chức năng Đăng nhập & Mua hàng', () => {
     await expect(cartPage.cartPageTitle).toHaveText('Your Cart');
   });
 
-  test('Thanh toán', async ({ page }) => {
+  test('Checkout', async ({ page }) => {
     const loginPage = new LoginPage(page);
     const inventoryPage = new InventoryPage(page);
     const cartPage = new CartPage(page);
