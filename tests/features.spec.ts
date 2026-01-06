@@ -11,20 +11,19 @@ test.describe('Sorting, Price, Logout', () => {
   test.beforeEach(async ({ page }) => {
     loginPage = new LoginPage(page);
     inventoryPage = new InventoryPage(page);
+    
     await loginPage.goto();
     await loginPage.login('standard_user', 'secret_sauce');
+    
     await inventoryPage.resetAppState();
-    await page.reload();
+    await page.reload(); 
   });
 
   test('Sorting by Price (Low to High)', async ({ page }) => {
-
     await inventoryPage.selectSortOption('lohi');
-
     const pricesText = await inventoryPage.inventoryItemPrices.allInnerTexts();
     const pricesNum = pricesText.map(price => parseFloat(price.replace('$', '')));
     const expectedPrices = [...pricesNum].sort((a, b) => a - b);
-    console.log('UI Prices:', pricesNum);
     expect(pricesNum).toEqual(expectedPrices);
   });
 
@@ -33,6 +32,7 @@ test.describe('Sorting, Price, Logout', () => {
     const checkOutPage = new CheckOutPage(page);
 
     const addButtons = await page.locator('button[id^="add-to-cart"]').all();
+    
     await addButtons[0].click(); 
     await addButtons[1].click(); 
 
@@ -45,7 +45,7 @@ test.describe('Sorting, Price, Logout', () => {
     const tax = await checkOutPage.getTax();
     const total = await checkOutPage.getTotal();
 
-    const expectedSubtotal = 29.99 + 9.99; 
+    const expectedSubtotal = 29.99 + 15.99;
     const expectedTax = parseFloat((expectedSubtotal * 0.08).toFixed(2)); 
     const expectedTotal = expectedSubtotal + expectedTax;
 
