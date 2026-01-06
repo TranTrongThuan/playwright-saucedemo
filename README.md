@@ -1,4 +1,4 @@
-# SauceDemo Automation Framework 🚀
+# SauceDemo Automation Framework
 
 ![Playwright](https://img.shields.io/badge/Playwright-45ba4b?style=for-the-badge&logo=Playwright&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
