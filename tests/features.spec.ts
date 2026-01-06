@@ -13,6 +13,8 @@ test.describe('Sorting, Price, Logout', () => {
     inventoryPage = new InventoryPage(page);
     await loginPage.goto();
     await loginPage.login('standard_user', 'secret_sauce');
+    await inventoryPage.resetAppState();
+    await page.reload();
   });
 
   test('Sorting by Price (Low to High)', async ({ page }) => {
@@ -43,8 +45,8 @@ test.describe('Sorting, Price, Logout', () => {
     const tax = await checkOutPage.getTax();
     const total = await checkOutPage.getTotal();
 
-    const expectedSubtotal = 29.99 + 9.99; // = 39.98
-    const expectedTax = parseFloat((expectedSubtotal * 0.08).toFixed(2)); // Thuế 8%
+    const expectedSubtotal = 29.99 + 9.99; 
+    const expectedTax = parseFloat((expectedSubtotal * 0.08).toFixed(2)); 
     const expectedTotal = expectedSubtotal + expectedTax;
 
     expect(subtotal).toBe(expectedSubtotal);
@@ -52,7 +54,7 @@ test.describe('Sorting, Price, Logout', () => {
     expect(total).toBe(expectedTotal);
   });
 
-  test('TC03: Verify Logout successfully', async ({ page }) => {
+  test('Verify Logout successfully', async ({ page }) => {
     await inventoryPage.logout();
     await expect(loginPage.loginButton).toBeVisible();
     await expect(page).toHaveURL('https://www.saucedemo.com/');

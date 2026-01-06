@@ -12,6 +12,7 @@ export class InventoryPage {
   readonly inventoryItemPrices: Locator;
   readonly burgerMenuBtn: Locator;
   readonly logoutLink: Locator;
+  readonly resetSidebarLink: Locator;
 
   constructor(page: Page) {
     this.page = page;
@@ -25,6 +26,7 @@ export class InventoryPage {
     this.inventoryItemPrices = page.locator('.inventory_item_price');
     this.burgerMenuBtn = page.locator('#react-burger-menu-btn');
     this.logoutLink = page.locator('#logout_sidebar_link');
+    this.resetSidebarLink = page.locator('#reset_sidebar_link');
   }
 
   async addFirstItemToCart() {
@@ -44,5 +46,11 @@ export class InventoryPage {
   async logout() {
     await this.burgerMenuBtn.click();
     await this.logoutLink.click();
+  }
+
+  async resetAppState() {
+    await this.burgerMenuBtn.click();
+    await this.resetSidebarLink.click();
+    await this.page.locator('#react-burger-cross-btn').click();
   }
 }
