@@ -15,7 +15,6 @@ This project demonstrates the **Page Object Model (POM)** design pattern.
 
 ## 📂 Project Structure
 ```text
-├── .github/workflows   # CI/CD configurations
 ├── pages               # Page Object Classes (POM)
 ├── tests               # Test Scripts
 ├── playwright.config.ts
